@@ -10,6 +10,6 @@ using namespace std;
 int main()
 {
     cout << "Hello, CSC 134!" << endl;
-    cout << "Codespaces get easier everytime you use them. (imo)";
+    cout << "Codespaces get easier everytime you use them. (imo)" << endl;
     return 0;
 }
