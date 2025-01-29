@@ -33,6 +33,14 @@ int main()
     double total_cost = num_apples * cost_each;
     cout << "The price for all of them is : $ " << total_cost << endl;
 
+    // Deal
+    cout << "How many apples would you like?";
+    cin >> apples_to_buy;
+
+    total_cost = apples_to_buy * cost_each;
+    cout << "Thank you! " << apples_to_buy << " apples comes to $" << total_cost << endl;
+    cout << "Have a nice day!" << endl;
+
     cout << endl;
     return 0; // no errors
 }
