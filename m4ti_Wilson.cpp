@@ -18,6 +18,23 @@ int main()
     }
     cout << "Done!" << endl;
 
-    // PART TWO
+    // PART TWO, DISPLAYS A LIST OF NUMBERS AND THEIR SQUARES
+    /*for (int i=1; i <=10; i++)
+    {
+        cout << "Happy Mar. " << i << endl;
+    }
+    */
+
+    cout << "Table of Squares" << endl;
+    cout << "----------------" << endl;
+    int num = 1;
+    int sq; // num squared
+    while (num <= 10)
+    {
+        sq = num * num;
+        cout << num << "\t" << sq << endl;
+        num = num + 1;
+    }
+
     return 0;
 }
