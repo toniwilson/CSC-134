@@ -36,7 +36,8 @@ int main () {
     // LOAD MAG
     mag.push_back(BLACK);
     mag.push_back(RED);
-    int num_shells = 2;
+    mag.push_back(BLACK);
+    int num_shells = mag.size();
 
     // LOOK AT SHELL BEFORE YOU EJECT IT
     int current_shell = mag.at(num_shells - 1);
