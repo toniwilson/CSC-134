@@ -15,15 +15,43 @@ int main () {
     const int EMPTY = 0;
 
     // example one, using a basic array
-    int magazine[] = {BLACK, RED, BLACK};
-    for {int shell : magazine} {
+    int magazine[] = {RED, RED, RED, BLACK};
+    for (int shell : magazine) {
         string shellname;
-        if {shell == BLACK} {
-            shellname = "BLACK"
+        if (shell == BLACK) {
+            shellname = "BLACK";
         }
-        if {shell == RED} {
-            shellname = "RED"
+        if (shell == RED) {
+            shellname = "RED";
         }
         cout << "Next shell: " << shellname << endl;
     }
+
+    // example two, using a vector
+    // .size() tells you how many items are in the vector
+    // .push_back() adds an item to the back (end) of the vector
+    // .pop_back() removes an item from the back (end) of the vector
+
+    vector<int> mag;
+    // LOAD MAG
+    mag.push_back(BLACK);
+    mag.push_back(RED);
+    int num_shells = 2;
+
+    // LOOK AT SHELL BEFORE YOU EJECT IT
+    int current_shell = mag.at(num_shells - 1);
+    cout << "Next shell: " << current_shell << endl;
+
+    // EJECT A SHELL
+    mag.pop_back(); // this removes the shell
+    num_shells--;
+
+    // REPEAT
+    current_shell = mag.at(num_shells - 1);
+    cout << "Next Shell: " << current_shell << endl;
+    mag.pop_back(); // removes last shell
+    cout << "Mag contains " << mag.size() << " shells." << endl;
+    cout << "It could hold up to " << mag.capacity() << " before resizing." << endl;
+
+    return 0;
 }
