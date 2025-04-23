@@ -30,7 +30,9 @@ enum Room {
     LIBRARY = 2,
     GARDEN = 3,
     CELLAR = 4,
-    NUM_ROOMS = 5
+    MASTER_BEDROOM = 5,
+    OFFICE = 6,
+    NUM_ROOMS = 7
 };
 
 int main() {
@@ -40,7 +42,9 @@ int main() {
         "Winery",
         "Library",
         "Garden",
-        "Cellar"
+        "Cellar",
+        "Master Bedroom",
+        "Office"
     };
     
     // Room descriptions array
@@ -50,6 +54,8 @@ int main() {
         "Walls lined with ancient books. The air smells of old paper.",
         "A breautifully structured and kept flower garden with large statues and fountains.",
         "A dark, damp cellar with holding cells. Each with cobwebs in the corners."
+        "A large room with gold lined wallpaper, canopy bed and a heavy wardrobe.",
+        "A dark, dimly lit room with a heavy mahogony desk and office chair."
     };
     
     // Adjacency list using a 2D array
@@ -71,9 +77,9 @@ int main() {
     connections[GREAT_ROOM][WEST] = GARDEN;          // Great Room -> West -> Garden
     
     // Library connections
-    connections[LIBRARY][NORTH] = -1;                 // No connection north
+    connections[LIBRARY][NORTH] = MASTER_BEDROOM;     // Library -> North -> Master Bedroom
     connections[LIBRARY][EAST] = -1;                 // No connection east
-    connections[LIBRARY][SOUTH] = -1;               // No connection south
+    connections[LIBRARY][SOUTH] = OFFICE;           // Library -> South -> Office
     connections[LIBRARY][WEST] = GREAT_ROOM;       // Library -> West -> Great Room
     
     // Garden connections
@@ -84,15 +90,27 @@ int main() {
     
     // Winery connections
     connections[WINERY][NORTH] = -1;                // No connection north
-    connections[WINERY][EAST] = -1;                // No connection east
+    connections[WINERY][EAST] = MASTER_BEDROOM;     // Winery -> East -> Master Bedroom
     connections[WINERY][SOUTH] = GREAT_ROOM;      // Winery -> South -> Great Room
     connections[WINERY][WEST] = -1;              // No connection west
     
-    // Basement connections
+    // Cellar connections
     connections[CELLAR][NORTH] = -1;                // No connection north
     connections[CELLAR][EAST] = -1;                // No connection east
     connections[CELLAR][SOUTH] = GARDEN;          // Cellar -> South -> Garden
     connections[CELLAR][WEST] = -1;              // No connection west
+
+    // Master Bedroom connections
+    connections[MASTER_BEDROOM][NORTH] = -1;          // No connection north
+    connections[MASTER_BEDROOM][EAST] = -1;          // No connection east
+    connections[MASTER_BEDROOM][SOUTH] = LIBRARY;   // Master Bedroom -> South -> Library
+    connections[MASTER_BEDROOM][WEST] = WINERY;    // Master Bedroom -> West -> Winery
+
+    // Office connections
+    connections[OFFICE][NORTH] = LIBRARY;             // Office -> North -> Library
+    connections[OFFICE][EAST] = -1;                  // No connection south
+    connections[OFFICE][SOUTH] = -1;                // No connection south
+    connections[OFFICE][WEST] = -1;                // No connection south
     
     // Game state
     int currentRoom = GREAT_ROOM; // Start in the Great Room
